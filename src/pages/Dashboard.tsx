@@ -1,15 +1,25 @@
-// src/components/Dashboard.js
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleAdd = (e: any) => {
+    e.preventDefault();
+    navigate("/add")
+  }
+
+  const navToProfile = (e: any) => {
+    e.preventDefault();
+    navigate("/profile");
+  }
+
   return (
     <div className="min-h-screen bg-gray-900 p-8 text-white">
-      {/* Header */}
       <header className="flex justify-between items-center py-4 px-6 bg-gray-800 rounded-lg">
         <h1 className="text-3xl font-bold">HealthMate</h1>
       </header>
 
       <div className="flex mt-6 space-x-4">
-        {/* Sidebar */}
         <div className="w-1/4 bg-gray-800 rounded-lg p-4 space-y-4">
           <button className="w-full flex items-center justify-start p-2 space-x-3 bg-gray-700 rounded-lg hover:bg-gray-600">
             📰 <span>Medical News</span>
@@ -69,10 +79,10 @@ const Dashboard = () => {
             </div>
 
             <div className="space-y-4">
-              <button className="w-[400px] bg-gray-700 hover:bg-gray-600 py-7 rounded-lg flex items-center justify-center space-x-5">
+              <button className="w-[400px] bg-gray-700 hover:bg-gray-600 py-7 rounded-lg flex items-center justify-center space-x-5" onClick={navToProfile}>
                 <span>👥</span> <span>Health Community</span>
               </button>
-              <button className="w-[400px] bg-gray-700 hover:bg-gray-600 py-7 rounded-lg flex items-center justify-center space-x-5">
+              <button className="w-[400px] bg-gray-700 hover:bg-gray-600 py-7 rounded-lg flex items-center justify-center space-x-5" onClick={handleAdd}>
                 <span>➕</span> <span>Add Appointment</span>
               </button>
               <button className="w-[400px] bg-gray-700 hover:bg-gray-600 py-7 rounded-lg flex items-center justify-center space-x-5">
@@ -81,7 +91,6 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Calendar and Stats Section */}
           <div className="flex space-x-4">
             <div className="w-1/3 bg-gray-800 p-4 rounded-lg">
               <h3 className="font-bold mb-2">Calendar</h3>

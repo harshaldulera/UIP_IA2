@@ -4,9 +4,11 @@ import { Router } from "./Router";
 const App = () => {
   return (
     <>
+    {/* <DndProvider backend={HTML5Backend}> */}
       <BrowserRouter>
         <Router />
       </BrowserRouter>
+      {/* </DndProvider> */}
     </>
   )
 }
